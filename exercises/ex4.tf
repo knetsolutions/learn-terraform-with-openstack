@@ -1,6 +1,4 @@
 /*
-Exercise 4:
-
 Objective:
 Create a keypair, 
 Create a security-group 

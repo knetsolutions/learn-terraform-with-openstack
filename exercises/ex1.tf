@@ -6,13 +6,6 @@ Create a instance in openstack, with existing image, flavor, keypair, security-g
 
 Use terraform provider and resource block.
 
-
-openstack command:
-
-openstack server create --image  dea87f06-9fdc-410c-974f-470b057cfa2b \
-                        --flavor 1 --key-name mykey --security-group default \
-                        --nic net-id=db4a268a-465d-40d7-9db2-54b82d945bec \
-                        vm1
 */
 
 

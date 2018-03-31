@@ -1,18 +1,10 @@
 /*
-Exercise 1:
-
 Objective:
 Create a instance in openstack, with existing image, flavor, keypair, security-group and network resources.
+Create a floating IP, and associate with the VM.
 
 Using output block to display the output of ID, name and fixed IP parameters.
 
-
-openstack command:
-
-openstack server create --image  dea87f06-9fdc-410c-974f-470b057cfa2b \
-                        --flavor 1 --key-name mykey --security-group default \
-                        --nic net-id=db4a268a-465d-40d7-9db2-54b82d945bec \
-                        vm1
 */
 
 
@@ -40,6 +32,17 @@ resource "openstack_compute_instance_v2" "vm1" {
   }
 }
 
+resource "openstack_networking_floatingip_v2" "fip_1" {
+  pool = "public"
+}
+
+
+resource "openstack_compute_floatingip_associate_v2" "fip_1" {
+  floating_ip = "${openstack_networking_floatingip_v2.fip_1.address}"
+  instance_id = "${openstack_compute_instance_v2.vm1.id}"
+}
+
+
 # output vm name variable 
 
 output "vm-name" {
@@ -58,3 +61,8 @@ output "vm-ip" {
 	value = "${openstack_compute_instance_v2.vm1.network.0.fixed_ip_v4}"
 }
 
+# output floating-ip variable 
+
+output "vm-floating-ip" {
+  value = "${openstack_networking_floatingip_v2.fip_1.address}"
+}
