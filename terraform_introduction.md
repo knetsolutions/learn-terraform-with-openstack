@@ -1,5 +1,12 @@
 
-1.What is Terraform?
+1. Infrastructure as Code
+=========================
+
+Infrastructure as code is the process of managing and provisioning computer data centers through machine-readable definition files, rather than physical hardware configuration or interactive configuration tools.
+
+https://en.wikipedia.org/wiki/Infrastructure_as_Code
+
+2.What is Terraform?
 =====================
 
 Terraform is used to create, manage, and update infrastructure resources such as physical machines, VMs, network switches, containers, and more. Almost any infrastructure type can be represented as a resource in Terraform.
@@ -18,7 +25,7 @@ iii) versioning
 
 
 
-2.Use Cases :
+3.Use Cases :
 =====================
 
 1. Deploying and Maintaining Multi-Tier Applications Infrastructure (DB, WEB, LOG, Load balancer, etc)
@@ -30,7 +37,7 @@ iii) versioning
 4. Multi cloud Support (cloud agnostic)
 
 
-3.Providers
+4.Providers
 ============
 
 Terraform can manage existing and popular service providers such as,
@@ -54,7 +61,7 @@ https://www.terraform.io/docs/providers/index.html
 
 
 
-4.Key Features
+5.Key Features
 ==============
 
 
@@ -89,7 +96,7 @@ Incremental changes of your existing infrastructure can be updated.
 
 
 
-5.Configuration File
+6.Configuration File
 =====================
 
 Configuration files describe to Terraform the components needed to run a single application or your entire datacenter.
@@ -99,8 +106,10 @@ As the configuration changes, Terraform is able to determine what changed and cr
 
 
 
-6.References:
+7.References:
 ==============
+
+https://en.wikipedia.org/wiki/Infrastructure_as_Code
 
 https://www.terraform.io/
 
