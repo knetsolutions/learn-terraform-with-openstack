@@ -1,11 +1,10 @@
 How to Install Terraform:
 =========================
 
+I am using **Ubuntu 16.04.04 LTS** for this demonstration.
 
-# OS:  Ubuntu 16.04.04 LTS (should work on all major linux distributions)
 
-
-At the time of writing, the terraform latest version is Terraform 0.11.5 
+The terraform latest version is **Terraform 0.11.5**
 
 
 1) Download the Terraform from the below link
