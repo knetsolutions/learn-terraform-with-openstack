@@ -4,11 +4,10 @@ Terraform uses text files to describe infrastructure and to set variables. These
 
 Two formats are supported.
 
-1. JSON
-2. Terraform format (More human readable, support comments) - Preferred.
+**1. JSON**
+**2. Terraform format (More human readable, support comments) - Preferred.**
 
 Terraform format ends in .tf and JSON format ends in .tf.json
-
 
 Load all the files (.tf or .tf.json) present in the directory.
 
@@ -18,8 +17,9 @@ Configuration Syntax:
 
 Terraform syntax is called HashiCorp Configuration Language (HCL).
 
-1. provider block
+1.provider block
 ---------------------
+
 This block contains Providers  configuration such as auth details, endpoint URLs, etc. 
 
 
@@ -35,7 +35,7 @@ provider "openstack" {
 
 ```
 
-2. Variable
+2.Variable
 ---------------------
 
 ```
@@ -49,7 +49,7 @@ This variable can be referred as "${var.image_id}".
 
 
 
-3. Resource
+3.Resource
 ---------------------
 
 Resources are a component of your infrastructure. It might be some low level /high level component. Example: In openstack terminology networks, security groups, instance, key-pair etc.
@@ -63,7 +63,7 @@ resource "openstack_compute_instance_v2" "vm1" {
 
 ```
 
-4. Output variable
+4.Output variable
 ---------------------
 
 Outputs define values that will be highlighted to the user when Terraform applies. 
@@ -78,7 +78,7 @@ output "vm-ip" {
 }
 ```
 
-5. data sources
+5.data sources
 ---------------------
 
 Data sources allow data to be fetched or computed for use elsewhere in Terraform configuration.
