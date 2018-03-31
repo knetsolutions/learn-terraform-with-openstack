@@ -42,7 +42,7 @@ provider "openstack" {
 ```
 variable image_id {
   type = "string"
-  default = "e5ba3be8-ee0e-4672-99b6-388fe9d5b1b5"
+  default = "dea87f06-9fdc-410c-974f-470b057cfa2b"
 }
 ```
 
@@ -89,8 +89,8 @@ Example:  Read the file contents
 Providers are responsible in Terraform for defining and implementing data sources
 
 ```
-data "template_file" "vm2script" {
-  template = "${file("terraform/sg/cloudinit2.yaml")}"
+data "template_file" "cloudscript" {
+  template = "${file("cloudinit.yaml")}"
 }
 
 ```
