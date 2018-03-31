@@ -28,7 +28,6 @@ Below are the important commands,
 
 6. terraform output
 
-7. terraform import
 
 
 
@@ -130,12 +129,7 @@ terraform destroy
 6.terraform output
 -------------------------------------
 
-Todo
-
-7.terraform import
--------------------------------------
-
-Todo
+display the output variables
 
 
 Simple Demo
