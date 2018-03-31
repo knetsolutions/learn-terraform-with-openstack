@@ -1,5 +1,5 @@
 
-What is Terraform?
+1.What is Terraform?
 =====================
 
 Terraform is used to create, manage, and update infrastructure resources such as physical machines, VMs, network switches, containers, and more. Almost any infrastructure type can be represented as a resource in Terraform.
@@ -18,7 +18,7 @@ iii) versioning
 
 
 
-Use Cases :
+2.Use Cases :
 =====================
 
 1. Deploying and Maintaining Multi-Tier Applications Infrastructure (DB, WEB, LOG, Load balancer, etc)
@@ -30,8 +30,8 @@ Use Cases :
 4. Multi cloud Support (cloud agnostic)
 
 
-Provider
-=========
+3.Providers
+============
 
 Terraform can manage existing and popular service providers such as,
 
@@ -54,7 +54,7 @@ https://www.terraform.io/docs/providers/index.html
 
 
 
-Key Features
+4.Key Features
 ==============
 
 
@@ -89,7 +89,7 @@ Incremental changes of your existing infrastructure can be updated.
 
 
 
-Configuration File
+5.Configuration File
 =====================
 
 Configuration files describe to Terraform the components needed to run a single application or your entire datacenter.
@@ -99,7 +99,7 @@ As the configuration changes, Terraform is able to determine what changed and cr
 
 
 
-References:
+6.References:
 ==============
 
 https://www.terraform.io/
