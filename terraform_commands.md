@@ -33,7 +33,7 @@ Below are the important commands,
 
 
 
-1. terraform init -  Initialization 
+1.terraform init -  Initialization 
 --------------------------------------------
 
 Initialize a Terraform working directory, It Downloads the plugin required and initialize it.
@@ -74,7 +74,7 @@ lock.json  terraform-provider-openstack_v1.3.0_x4
 ```
 
 
-2. terraform plan
+2.terraform plan
 -------------------------------------
 
 Generate and show an execution plan
@@ -89,7 +89,7 @@ terraform plan
 ```
 
 
-3. terraform apply
+3.terraform apply
 -------------------------------------
 Builds the infrastructure
 
@@ -100,7 +100,7 @@ terraform apply
 ```
 
 
-4. terraform show
+4.terraform show
 -------------------------------------
 Inspect Terraform state or plan
 
@@ -112,7 +112,7 @@ terraform show
 
 
 
-5. terraform destroy
+5.terraform destroy
 -------------------------------------
 Destroy Terraform-managed infrastructure
 
@@ -124,15 +124,15 @@ terraform destroy
 
 
 
-*RULE:  Please be sure, you run the terraform command in the directory where you have the stack file.*
+*RULE:  Please be sure, you run the terraform command in the directory where you have the terraform  files.*
 
 
-6. terraform output
+6.terraform output
 -------------------------------------
 
 Todo
 
-7. terraform import
+7.terraform import
 -------------------------------------
 
 Todo
