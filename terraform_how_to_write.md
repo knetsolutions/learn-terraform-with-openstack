@@ -5,6 +5,7 @@ Terraform uses text files to describe infrastructure and to set variables. These
 Two formats are supported.
 
 **1. JSON**
+
 **2. Terraform format (More human readable, support comments) - Preferred.**
 
 Terraform format ends in .tf and JSON format ends in .tf.json
