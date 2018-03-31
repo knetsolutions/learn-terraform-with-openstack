@@ -6,9 +6,12 @@ Terraform is used to create, manage, and update infrastructure resources such as
 In Simple,
 
 Terraform is a tool for 
+
  i)   building, 
- ii)  changing, 
- iii) versioning 
+
+ii)  changing, 
+
+iii) versioning 
 
  your infrastructure.
   
@@ -17,14 +20,20 @@ Provider
 =========
 
 Terraform can manage existing and popular service providers such as,
-	1) openstack
-	2) aws
-	3) google cloud
-	4) azure
-	5) kubernetes
-	6) DigitalOcean
 
-	etc (100+)
+1) openstack
+
+2) aws
+
+3) google cloud
+
+4) azure
+
+5) kubernetes
+
+6) DigitalOcean
+
+7).......etc......
 
 
 https://www.terraform.io/docs/providers/index.html
