@@ -68,8 +68,11 @@ https://www.terraform.io/docs/providers/index.html
 
 Infrastructure as Code 
 ------------------------
+
 a. Infrastructure is described using a high-level configuration syntax.
+
 b. This allows versioning
+
 c. infrastructure can be shared and re-used.
 
 
