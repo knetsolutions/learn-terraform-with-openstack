@@ -1,83 +1,49 @@
-Terraform Exercises - Part2:
-============================
-Exercise3:
------------
+Exercises2:
+=====================
 
-In this exercise, we build our infra as below,
+Objective:  Demonstrate the openstack resource creation(vm, floatingip, floating ip association) in terraform. 
 
-![Infrastructure Diagram](exercises/ex3.png?raw=true)
+we covers **resource, variable, output block**  of terraform configuration in this exercise.
 
-The following resources will be created.
 
-1) Keypair
+Steps:
+------------
 
-2) Security Groups and Rules
-
-3) Network and Subnet
-
-4) Router
-
-5) Floating IP
-
-6) Instance
-
-we will use the Ubuntu Image and flavor.
-
-**keypair:**
+1) In the Exercise1, 
+   Use variable block  to declare the image, flavor, key, security group, network. 
 
 ```
-
-
-```
- 
- **Security Groups and Rules**
-
+variable myimage {
+  default = "dea87f06-9fdc-410c-974f-470b057cfa2b"
+}
 ```
 
-```
+2) Terraform plan and apply
 
-**Network and Subnet**
-
-```
+3) Add floating IP resource.
 
 ```
-
-**Router**
-
+resource "openstack_networking_floatingip_v2" "fip_1" {
+  pool = "public"
+}
 ```
+4) Terraform Plan,apply and show
 
-```
-
-**Floating IP**
+5) Add floating IP association  
 
 
 ```
+resource "openstack_compute_floatingip_associate_v2" "fip_1" {
+  floating_ip = "${openstack_networking_floatingip_v2.fip_1.address}"
+  instance_id = "${openstack_compute_instance_v2.vm1.id}"
+}
 
 ```
 
-**Instance**
-```
-
-```
-
-
-
-
-
-
-Execution
-
-```
-terraform init
-terraform plan
-terraform apply
-```
+6) Terraform plan , apply and show.
 
 
 
 Referneces:
 ===============
-
-http://cloudinit.readthedocs.io/en/latest/topics/examples.html
-https://www.terraform.io/docs/providers/template/d/cloudinit_config.html#
-
+1. https://www.terraform.io/docs/providers/openstack/index.html

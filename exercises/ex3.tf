@@ -1,60 +1,21 @@
-/*
-Objective:
-Create a keypair, 
-Create a security-group 
-Create a network resources.
-Create a instance in openstack, with existing image, flavor , keypair, secgroup, network
 
-
-Use terraform provider and resource, variable, output block.
-
-
-openstack command:
-
-openstack keypair create
-openstack network create
-openstack subnet create
-openstack security group create
-openstack security  group rule create
-openstack server create 
-openstack floating ip create 
-openstack floating ip set
-
-*/
-
-
-
-provider "openstack" {
-  user_name   = "demo"
-  tenant_name = "demo"
-  password    = "openstack123"
-  auth_url    = "http://10.0.1.6/identity"
-  region      = "RegionOne"
-  domain_name = "default"
-}
-
+# Below variables in vars.tf file
 
 variable myimage {
-  default = "dea87f06-9fdc-410c-974f-470b057cfa2b"
+  default = "a73ae89d-271e-45ba-8417-ddd6373dc585"
 }
 
 variable myflavor {
-  default = "1"
+  default = "d2"
 }
 
-variable mysecgroup {
-  default = "default"
+variable public_pool_id {
+  default = "74736280-83bc-4ffe-8228-cbe12c091b49"
 }
 
-variable privatenet {
-  default = "db4a268a-465d-40d7-9db2-54b82d945bec"
-}
 
-resource "openstack_compute_keypair_v2" "mykey1" {
-  name = "mykey1"
-  public_key = "${file("testkey.pub")}"
-}
 
+# Below resources in stack.tf file
 
 resource "openstack_networking_secgroup_v2" "my_secgroup" {
   name = "my_secgroup"
@@ -68,6 +29,34 @@ resource "openstack_networking_secgroup_rule_v2" "rule1" {
 }
 
 
+resource "openstack_compute_keypair_v2" "mykey1" {
+  name = "mykey1"
+  public_key = "${file("testkey.pub")}"
+}
+
+
+resource "openstack_networking_network_v2" "client_net" {
+  name = "client_net"
+  admin_state_up = "true"
+}
+
+resource "openstack_networking_subnet_v2" "client_subnet" {
+  name = "client_subnet"
+  network_id = "${openstack_networking_network_v2.client_net.id}"
+  cidr = "172.1.1.0/24"
+}
+
+
+resource "openstack_networking_router_v2" "myrouter" {
+  name = "myrouter"
+  external_network_id = "${var.public_pool_id}"
+}
+
+resource "openstack_networking_router_interface_v2" "client_net_itf" {
+  router_id = "${openstack_networking_router_v2.myrouter.id}"
+  subnet_id = "${openstack_networking_subnet_v2.client_subnet.id}"
+}
+
 
 resource "openstack_compute_instance_v2" "vm1" {
   name            = "vm1"
@@ -76,9 +65,10 @@ resource "openstack_compute_instance_v2" "vm1" {
   key_pair        = "${openstack_compute_keypair_v2.mykey1.name}"
   security_groups = ["${openstack_networking_secgroup_v2.my_secgroup.id}"]
   network {
-    uuid = "${var.privatenet}"
+    uuid = "${openstack_networking_network_v2.client_net.id}"
   }
 }
+
 
 resource "openstack_networking_floatingip_v2" "fip_1" {
   pool = "public"

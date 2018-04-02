@@ -123,37 +123,7 @@ export OS_AUTH_URL=http://10.0.1.6/identity
 
 
 
-Exercises2:
-=====================
-
-
-Objective:  Demonstrate the openstack resource creation(vm, floatingip, floating ip association) in terraform. we covers **resource, variable, output block**  of terraform configuration in this exercise.
-
-Steps:
-------------
-1) In the Exercise1, 
-   Use variable block  to declare the image, flavor, key, security group, network. 
-
-```
-variable myimage {
-  default = "dea87f06-9fdc-410c-974f-470b057cfa2b"
-}
-```
-
-2) Terraform plan and apply
-
-3) Add floating IP resource.
-
-4) Terraform Plan,apply and show
-
-5) Add floating IP association  
-
-6) Terraform plan , apply and show.
-
-
 Referneces:
 ===============
 1. https://www.terraform.io/docs/providers/openstack/index.html
 2. https://www.terraform.io/docs/providers/openstack/r/compute_instance_v2.html
- 
-

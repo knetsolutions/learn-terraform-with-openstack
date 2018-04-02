@@ -51,6 +51,7 @@ resource "openstack_compute_instance_v2" "vm1" {
     uuid = "db4a268a-465d-40d7-9db2-54b82d945bec"
   }
 }
+
 resource "openstack_networking_floatingip_v2" "fip_1" {
   pool = "public"
 }
