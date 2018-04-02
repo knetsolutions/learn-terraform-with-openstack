@@ -33,3 +33,15 @@ resource "openstack_compute_instance_v2" "client2" {
     uuid = "${openstack_networking_network_v2.client_net.id}"
   }
 }
+
+
+resource "openstack_networking_floatingip_v2" "fip_2" {
+  pool = "public"
+}
+
+
+resource "openstack_compute_floatingip_associate_v2" "fip_2" {
+  floating_ip = "${openstack_networking_floatingip_v2.fip_2.address}"
+  instance_id = "${openstack_compute_instance_v2.client1.id}"
+}
+
