@@ -1,10 +1,11 @@
 
-1. Infrastructure as Code
+1.Infrastructure as Code
 =========================
 
 Infrastructure as code is the process of managing and provisioning computer data centers through machine-readable definition files, rather than physical hardware configuration or interactive configuration tools.
 
 https://en.wikipedia.org/wiki/Infrastructure_as_Code
+
 
 2.What is Terraform?
 =====================
@@ -67,8 +68,11 @@ https://www.terraform.io/docs/providers/index.html
 
 Infrastructure as Code 
 ------------------------
+
 a. Infrastructure is described using a high-level configuration syntax.
+
 b. This allows versioning
+
 c. infrastructure can be shared and re-used.
 
 

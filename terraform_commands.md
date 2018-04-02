@@ -28,7 +28,6 @@ Below are the important commands,
 
 6. terraform output
 
-7. terraform import
 
 
 
@@ -48,7 +47,7 @@ mkdir ex1
 b. copy the ex1 terraform stack file (from the examples) to this directory
 
 ```
-cp /home/xxx/ex1.tf  ex1/.
+cp ex2a.tf  ex1/.
 ```
 
 c. Move in to the directory and perform terraform init.
@@ -130,12 +129,7 @@ terraform destroy
 6.terraform output
 -------------------------------------
 
-Todo
-
-7.terraform import
--------------------------------------
-
-Todo
+display the output variables
 
 
 Simple Demo
