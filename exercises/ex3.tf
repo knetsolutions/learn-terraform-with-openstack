@@ -1,24 +1,27 @@
 /*
-Exercise 3:
-
 Objective:
-Create a instance in openstack, with existing image, flavor, keypair, security-group and network resources.
+Create a keypair, 
+Create a security-group 
+Create a network resources.
+Create a instance in openstack, with existing image, flavor , keypair, secgroup, network
+
 
 Use terraform provider and resource, variable, output block.
 
 
 openstack command:
 
-openstack server create --image  dea87f06-9fdc-410c-974f-470b057cfa2b \
-                        --flavor 1 --key-name mykey --security-group default \
-                        --nic net-id=db4a268a-465d-40d7-9db2-54b82d945bec \
-                        vm1
-
-openstack floating ip create public
-
-openstack floating ip set --port fc04fe94-e2e2-4348-8118-9e82acd718d3  2a9b8f52-b1ca-4d05-a188-ac4fe0a0900c
+openstack keypair create
+openstack network create
+openstack subnet create
+openstack security group create
+openstack security  group rule create
+openstack server create 
+openstack floating ip create 
+openstack floating ip set
 
 */
+
 
 
 provider "openstack" {
@@ -39,26 +42,43 @@ variable myflavor {
   default = "1"
 }
 
-variable mykey {
-  default = "mykey"
-}
-
 variable mysecgroup {
   default = "default"
 }
+
+variable privatenet {
+  default = "db4a268a-465d-40d7-9db2-54b82d945bec"
+}
+
+resource "openstack_compute_keypair_v2" "mykey1" {
+  name = "mykey1"
+  public_key = "${file("testkey.pub")}"
+}
+
+
+resource "openstack_networking_secgroup_v2" "my_secgroup" {
+  name = "my_secgroup"
+  description = "Allow all"
+}
+
+resource "openstack_networking_secgroup_rule_v2" "rule1" {
+  direction = "ingress"
+  ethertype = "IPv4"
+  security_group_id = "${openstack_networking_secgroup_v2.my_secgroup.id}"
+}
+
 
 
 resource "openstack_compute_instance_v2" "vm1" {
   name            = "vm1"
   image_id        = "${var.myimage}"
   flavor_id       = "${var.myflavor}"
-  key_pair        = "${var.mykey}"
-  security_groups = ["${var.mysecgroup}"]
+  key_pair        = "${openstack_compute_keypair_v2.mykey1.name}"
+  security_groups = ["${openstack_networking_secgroup_v2.my_secgroup.id}"]
   network {
-    uuid = "db4a268a-465d-40d7-9db2-54b82d945bec"
+    uuid = "${var.privatenet}"
   }
 }
-
 
 resource "openstack_networking_floatingip_v2" "fip_1" {
   pool = "public"
@@ -69,6 +89,7 @@ resource "openstack_compute_floatingip_associate_v2" "fip_1" {
   floating_ip = "${openstack_networking_floatingip_v2.fip_1.address}"
   instance_id = "${openstack_compute_instance_v2.vm1.id}"
 }
+
 
 
 # output vm name variable 

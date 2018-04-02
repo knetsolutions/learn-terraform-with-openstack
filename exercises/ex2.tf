@@ -19,19 +19,38 @@ provider "openstack" {
   domain_name = "default"
 }
 
+
+
+variable myimage {
+  default = "dea87f06-9fdc-410c-974f-470b057cfa2b"
+}
+
+variable myflavor {
+  default = "1"
+}
+
+variable mykey {
+  default = "mykey"
+}
+
+variable mysecgroup {
+  default = "default"
+}
+
+
+
 # Instance creation 
 
 resource "openstack_compute_instance_v2" "vm1" {
   name            = "vm1"
-  image_id        = "dea87f06-9fdc-410c-974f-470b057cfa2b"
-  flavor_id       = "1"
-  key_pair        = "mykey"
-  security_groups = ["default"]
+  image_id        = "${var.myimage}"
+  flavor_id       = "${var.myflavor}"
+  key_pair        = "${var.mykey}"
+  security_groups = ["${var.mysecgroup}"]
   network {
     uuid = "db4a268a-465d-40d7-9db2-54b82d945bec"
   }
 }
-
 resource "openstack_networking_floatingip_v2" "fip_1" {
   pool = "public"
 }

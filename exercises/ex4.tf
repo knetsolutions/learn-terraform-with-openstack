@@ -1,12 +1,17 @@
 /*
+Exercise 4:
+
 Objective:
 Create a keypair, 
 Create a security-group 
 Create a network resources.
 Create a instance in openstack, with existing image, flavor , keypair, secgroup, network
 
-
+Include the cloudinit stuff
 Use terraform provider and resource, variable, output block.
+
+
+
 
 
 openstack command:
@@ -68,6 +73,14 @@ resource "openstack_networking_secgroup_rule_v2" "rule1" {
 }
 
 
+data "template_cloudinit_config" "provision_script" {
+  part {
+    content_type = "text/cloud-config"
+    content = "${file("cloudinit.yaml")}"
+  }
+}
+
+
 
 resource "openstack_compute_instance_v2" "vm1" {
   name            = "vm1"
@@ -78,6 +91,8 @@ resource "openstack_compute_instance_v2" "vm1" {
   network {
     uuid = "${var.privatenet}"
   }
+  user_data = "${data.template_cloudinit_config.provision_script.rendered}"
+
 }
 
 resource "openstack_networking_floatingip_v2" "fip_1" {
