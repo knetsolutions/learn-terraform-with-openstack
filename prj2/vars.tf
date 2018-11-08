@@ -13,7 +13,7 @@ variable public_pool_id {
 }
 
 variable mykey {
-  default = "rj45"
+  default = "mykey"
 }
 
 variable instances {
