@@ -1,0 +1,7 @@
+Resource dependency
+resource graph
+
+
+https://www.terraform.io/docs/configuration/resources.html#count
+https://www.terraform.io/docs/internals/graph.html
+https://www.terraform.io/docs/commands/graph.html
