@@ -1,0 +1,13 @@
+#cloud-config
+
+package_update: true
+packages:
+    - nginx
+
+runcmd:
+    - sudo service nginx restart
+
+final_message: "Welcome - nginx Server installed"
+
+output:
+    final: '> /dev/ttyS0'
