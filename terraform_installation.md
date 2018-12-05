@@ -14,7 +14,7 @@ https://www.terraform.io/downloads.html
 
 
 ```
-wget https://releases.hashicorp.com/terraform/0.11.5/terraform_0.11.5_linux_amd64.zip
+wget https://releases.hashicorp.com/terraform/0.11.10/terraform_0.11.10_linux_amd64.zip
 ```
 
 
@@ -22,7 +22,7 @@ wget https://releases.hashicorp.com/terraform/0.11.5/terraform_0.11.5_linux_amd6
 -----------------------
 
 ```
-unzip terraform_0.11.5_linux_amd64.zip
+unzip terraform_0.11.10_linux_amd64.zip
 ```
 
 3)Move the terraform binary in to bin path.

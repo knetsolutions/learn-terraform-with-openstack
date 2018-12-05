@@ -14,21 +14,33 @@ But 0.10 onwards, plugin architecture is introduced. providers are independent p
 Terraform Commands:
 =====================
 
-Below are the important commands,
+Below are the important(or minimum) commands to know,
 
 1. terraform init
 
-2. terraform plan
+2. terraform validate
 
-3. terraform apply
+3. terraform plan
 
-4. terraform show
+4. terraform apply
 
-5. terraform destroy
+5. terraform show
 
-6. terraform output
+6. terraform destroy
+
+7. terraform output
+
+8. terraform graph
+
+9. terraform import
+
+10. terraform refresh
 
 
+
+The detailed commands are available in this link 
+
+https://www.terraform.io/docs/commands/index.html
 
 
 
@@ -72,13 +84,27 @@ $ls .terraform/plugins/linux_amd64/
 lock.json  terraform-provider-openstack_v1.3.0_x4
 ```
 
+2. terraform validate
+-------------------------------------
 
-2.terraform plan
+The terraform validate command is used to validate the syntax of the terraform files. Terraform performs a syntax check on all the terraform files in the directory, and will display an error if any of the files doesn't validate.
+
+
+```
+terraform validate
+```
+
+
+
+
+3.terraform plan
 -------------------------------------
 
 Generate and show an execution plan
 
-This command verifies the stack file is correct (no syntax issue) and able to communicate with provider. Error will be thrown, If any error in the file declaration, communication with provider.
+This command verifies the stack file is correct (no syntax issue) and able to communicate with provider. 
+
+Error will be thrown, If any error in the file declaration, communication with provider.
 
 This is a preliminary step, before we apply our stack in the provider.
 
@@ -88,7 +114,7 @@ terraform plan
 ```
 
 
-3.terraform apply
+4.terraform apply
 -------------------------------------
 Builds the infrastructure
 
@@ -99,7 +125,7 @@ terraform apply
 ```
 
 
-4.terraform show
+5.terraform show
 -------------------------------------
 Inspect Terraform state or plan
 
@@ -110,8 +136,7 @@ terraform show
 ```
 
 
-
-5.terraform destroy
+6.terraform destroy
 -------------------------------------
 Destroy Terraform-managed infrastructure
 
@@ -126,12 +151,55 @@ terraform destroy
 *RULE:  Please be sure, you run the terraform command in the directory where you have the terraform  files.*
 
 
-6.terraform output
+7.terraform output
 -------------------------------------
 
 display the output variables
 
 
+8. terraform graph
+-------------------------------------
+
+Terraform builds a dependency graph from the Terraform configurations, and walks this graph to generate plans, refresh state, and more.
+
+Reference:
+https://www.terraform.io/docs/internals/graph.html
+
+
+The terraform graph command is used to generate a visual representation of either a configuration or execution plan. The output is in the DOT format, which can be used by GraphViz to generate charts.
+
+
+```
+terraform graph | dot -Tsvg > graph.svg
+```
+
+open this graph.svg file in browser.
+
+
+
+9. terraform import
+-------------------------------------
+
+To be updated
+
+
+
+10. terraform refresh
+-------------------------------------
+
+The terraform refresh command is used to reconcile the state Terraform knows about (via its state file) with the real-world infrastructure. This can be used to detect any drift from the last-known state, and to update the state file.
+
+
+```
+terraform refresh
+```
+
+
+
+
+
 Simple Demo
 -----------------
+
+
 
