@@ -15,11 +15,11 @@
    - conditional execution
 
 
-### Steps:
----------------
+### Steps:
 
 
-#### 1. create a number of instances in vars.tf file
+
+#### 1. create a number of instances in vars.tf file
 
 ```
 variable instances {
@@ -38,7 +38,7 @@ Reference :  https://www.terraform.io/docs/configuration/variables.html#maps
 
 
 
-#### 2. In stack.tf, the openstack_compute_instance_v2 resource creation block,
+#### 2. In stack.tf, the openstack_compute_instance_v2 resource creation block,
 
 specify the number of resources to be created as below,
 
@@ -50,7 +50,7 @@ Here the count is 2.  it means index 0 and 1.
 
 
 
-#### 3. Access the index of the instance count.
+#### 3. Access the index of the instance count.
 
 We populate the VM name from index count index.
 
@@ -60,7 +60,7 @@ We populate the VM name from index count index.
 we can get the index of the count using "count.index" attribute.
 
 
-#### 4. conditional execution:
+#### 4. conditional execution:
 
 Terraform supports the simple conditional execution to branch on the final value
 
@@ -82,7 +82,7 @@ user_data = "${count.index > 0 ? "${data.template_cloudinit_config.init_script_2
 
 
 ### References:
----------------
+
 
 1. https://www.terraform.io/docs/configuration/resources.html#count
 2. https://www.terraform.io/docs/configuration/interpolation.html#conditionals
