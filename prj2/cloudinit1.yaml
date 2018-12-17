@@ -13,3 +13,4 @@ final_message: "Welcome - Apache Server installed"
 
 output:
     final: '> /dev/ttyS0'
+

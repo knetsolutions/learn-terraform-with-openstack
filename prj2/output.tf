@@ -17,3 +17,9 @@ output "vm-id" {
 output "vm-ip" {
   value = "${openstack_compute_instance_v2.vm1.*.network.0.fixed_ip_v4}"
 }
+
+output "floating-ips" {
+  value = "${openstack_networking_floatingip_v2.fip_1.*.address}"
+}
+
+

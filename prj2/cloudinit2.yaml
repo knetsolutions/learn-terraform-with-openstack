@@ -11,3 +11,4 @@ final_message: "Welcome - nginx Server installed"
 
 output:
     final: '> /dev/ttyS0'
+
