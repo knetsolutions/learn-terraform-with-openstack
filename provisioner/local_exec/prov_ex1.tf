@@ -1,15 +1,12 @@
-# Below resources in stack.tf file
+/*
 
-resource "openstack_networking_secgroup_v2" "my_secgroup" {
-  name = "my_secgroup"
-  description = "Allow all"
-}
 
-resource "openstack_networking_secgroup_rule_v2" "rule1" {
-  direction = "ingress"
-  ethertype = "IPv4"
-  security_group_id = "${openstack_networking_secgroup_v2.my_secgroup.id}"
-}
+   Local provisioner exercise
+
+
+*/
+
+
 
 resource "openstack_networking_network_v2" "client_net" {
   name = "client_net"
@@ -19,7 +16,7 @@ resource "openstack_networking_network_v2" "client_net" {
 resource "openstack_networking_subnet_v2" "client_subnet" {
   name = "client_subnet"
   network_id = "${openstack_networking_network_v2.client_net.id}"
-  cidr = "172.1.1.0/24"
+  cidr = "10.10.10.0/24"
 }
 
 
@@ -35,13 +32,17 @@ resource "openstack_networking_router_interface_v2" "client_net_itf" {
 
 
 resource "openstack_compute_instance_v2" "vm1" {
-  name            = "myvm1"
+  name            = "vm1"
   image_id        = "${var.myimage}"
   flavor_id       = "${var.myflavor}"
   key_pair        = "${var.mykey}"
-  security_groups = ["${openstack_networking_secgroup_v2.my_secgroup.id}"]
+  security_groups = ["${var.mysg}"]
   network {
     uuid = "${openstack_networking_network_v2.client_net.id}"
+  }
+
+  provisioner "local-exec" {
+    command = "echo ${openstack_compute_instance_v2.vm1.network.0.fixed_ip_v4} >> vm_ips.txt"
   }
 }
 
@@ -54,24 +55,9 @@ resource "openstack_networking_floatingip_v2" "fip_1" {
 resource "openstack_compute_floatingip_associate_v2" "fip_1" {
   floating_ip = "${openstack_networking_floatingip_v2.fip_1.address}"
   instance_id = "${openstack_compute_instance_v2.vm1.id}"
-}
-
-
-
-
-/*
-The null_resource is a resource that allows you to configure provisioners that are not directly associated with a single existing resource.
-
-Basically we want to use provisioner(execute someaction) independently not part of any existing resource.
-
-Here we use Null resource to ping the floating ip (from local machine/provisioner) , the dependency of exeuction of Null rresource is completion of VM resource creation.
-*/
-
-resource "null_resource" "ping_floatingip" {
-
-  depends_on = ["openstack_compute_instance_v2.vm1"]
 
   provisioner "local-exec" {
-    command = "ping ${openstack_networking_floatingip_v2.fip_1.address} -c 10"
+    command = "ping ${openstack_networking_floatingip_v2.fip_1.address} -c 25"
   }
+
 }
