@@ -69,7 +69,7 @@ data "template_cloudinit_config" "init_script_2" {
   }
 }
 
-
+/*
 resource "openstack_networking_floatingip_v2" "fip_1" {
   pool = "public"
   count = "${var.instances["backend"]}"
@@ -81,4 +81,4 @@ resource "openstack_compute_floatingip_associate_v2" "fip_1" {
   floating_ip = "${element(openstack_networking_floatingip_v2.fip_1.*.address, count.index)}"
   instance_id = "${element(openstack_compute_instance_v2.vm1.*.id, count.index)}"
 }
-
+*/
