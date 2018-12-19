@@ -29,18 +29,3 @@ Course Overview
 
 6. Terraform - Example deployment
 
-
-About Myself
-====================
-
-Myself Suresh Kumar, Instructor of this Course. I have been working in the Networking,Telecommunication Software industry for past 15 Years.
-I am engaged with Openstack, SDN, Cloud Projects for last 5 years. 
-
-I have been using Terraform for the last 2 years in my project.
-
-you can checkout my profile in linkedin.
-
-linkedin.com/in/sureshkvl
-
-
-Once you finish this course, You will get the fair understanding of Terraform. you would be able to write the your infra in openstack.

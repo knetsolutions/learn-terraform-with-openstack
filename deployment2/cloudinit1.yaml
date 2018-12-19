@@ -1,0 +1,16 @@
+#cloud-config
+
+package_update: true
+packages:
+    - apache2
+
+runcmd:
+    - sudo a2enmod ssl
+    - sudo a2ensite default-ssl
+    - sudo service apache2 restart
+
+final_message: "Welcome - Apache Server installed"
+
+output:
+    final: '> /dev/ttyS0'
+

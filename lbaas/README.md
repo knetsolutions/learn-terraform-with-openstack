@@ -140,7 +140,9 @@ resource "openstack_networking_floatingip_v2" "fip_vip" {
 ```
 
 
-### Deploy the stack
+### Part3 - Deploy the stack & Testing
+
+**Deploy**
 
 ```
 terraform init
@@ -148,7 +150,11 @@ terraform plan
 terraform apply -parallelism=1
 ```
 
+**Testing**
 
+```
+curl <floatingip>
+```
 
 ### References:
 
