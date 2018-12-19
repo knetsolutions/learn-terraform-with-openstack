@@ -6,9 +6,9 @@ Click below to access the Terraform course in UDEMY (Promo Price - $9.99)
 
 [link to Terraform UDEMY Course](https://www.udemy.com/learn-terraform-with-openstack-practical-exercises/?couponCode=PROMO1)
 
-## This Training tutorial is organized as below,
+## This Training tutorial is organized as below,
 
-### Introduction:
+### Introduction:
 
 1. [Course Overview](course_overview.md)
 2. [Introduction](terraform_introduction.md)
@@ -16,18 +16,18 @@ Click below to access the Terraform course in UDEMY (Promo Price - $9.99)
 4. [Basic Commands](terraform_commands.md)
 5. [How to write stack](terraform_how_to_write.md)
 
-### B.Basic Exercies:
+### Basic Exercies:
 
 6. [Exercise1](terraform_exercises_part1.md)
 7. [Exercise2](terraform_exercises_part2.md)
 8. [Exercise3](terraform_exercises_part3.md)
 9. [Exercise4](terraform_exercises_part4.md)
 
-### 3.Provisioner:
+### Provisioner:
 
 10. [Provisioner](provisioner/Readme.md)
 
-### 4.Some Concepts:
+### Some Concepts:
 
 11. parallel execution
 12. dependency Graph
@@ -35,7 +35,7 @@ Click below to access the Terraform course in UDEMY (Promo Price - $9.99)
 14. import
 
 
-### Deployment1 - : Bigger Infra
+### Deployment1 - : Bigger Infra
 
 **Learning points: Bigger topology (Router, multiple networks, servers)**
 
