@@ -1,6 +1,6 @@
 # Loadbalancer:
 
-** Objective:**
+**Objective:**
 
 Demonstrate the Openstack Load balancer functionality with stack.
 
@@ -57,7 +57,7 @@ Lets use the old stack .
 ### Part2 - Create a LBAAS resources
 
 
-#### openstack_lb_loadbalancer_v2
+####openstack_lb_loadbalancer_v2
 
 
 ```
@@ -137,6 +137,15 @@ resource "openstack_networking_floatingip_v2" "fip_vip" {
   pool = "public"
   port_id = "${openstack_lb_loadbalancer_v2.mylb.vip_port_id}"
 }
+```
+
+
+### Deploy the stack
+
+```
+terraform init
+terraform plan
+terraform apply -parallelism=1
 ```
 
 
