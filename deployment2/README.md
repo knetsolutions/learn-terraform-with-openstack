@@ -5,6 +5,7 @@
 
    I want to create multiple compute instances(identical configuration, except different cloudinit bootscripts - application provisioning ) and associate floating IPs.
 
+![Infrastructure Diagram](deploy2.jpg?raw=true) 
 
 **Technical learning:**
 

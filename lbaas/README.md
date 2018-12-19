@@ -11,6 +11,9 @@ Loadbalancer(with Round robin algorithm)
 Backend servers are member of this loadbalancer.
 Floating IP/Public IP is associated to the loadbalancer.
 
+![Infrastructure Diagram](lbaas.jpg?raw=true) 
+
+
 **User Demo:**
 
 http request to the FloatingIP of the loadbalancer. User gets the Response from the backend servers.
