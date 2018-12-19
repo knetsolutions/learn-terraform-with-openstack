@@ -25,7 +25,7 @@ Click below to access the Terraform course in UDEMY (Promo Price - $9.99)
 
 ### Provisioner:
 
-10. [Provisioner](provisioner/Readme.md)
+10. [Provisioner](provisioner/README.md)
 
 ### Some Concepts:
 
@@ -44,16 +44,16 @@ Click below to access the Terraform course in UDEMY (Promo Price - $9.99)
 
 ### Deployment2 - : conditional execution
 
-**Learning Points: Terraform - Count, Element(), Conditional Execution **
+**Learning Points: Terraform - Count, Element(), Conditional Execution**
 
-16. [Example Deployment2](deployment2/Readme.md)
+16. [Example Deployment2](deployment2/README.md)
 
 
 ### Deployment3 - : Load balancer stack
 
 **Learning Points:  LBAASv2 orchestration.**
 
-17. [Loadbalancer Deployment](lbaas/Readme.md)
+17. [Loadbalancer Deployment](lbaas/README.md)
 
 
 
@@ -62,4 +62,4 @@ Click below to access the Terraform course in UDEMY (Promo Price - $9.99)
 
 Myself Suresh Kumar, Instructor of this Course. I have been working in the Networking,Telecommunication Software industry for past 15 Years. Engaged with Openstack, SDN, Cloud Projects for last 5 years. 
 
-You can contact me on skype id: SURESHKVL  or by mail: sureshkumarr.s@gmail.com
+If You need any assistance, yon contact me on skype id: **SURESHKVL**  or by mail: sureshkumarr.s@gmail.com
