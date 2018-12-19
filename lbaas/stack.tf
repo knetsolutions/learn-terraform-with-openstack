@@ -67,6 +67,8 @@ data "template_cloudinit_config" "init_script_2" {
   }
 }
 
+
+
 /*
 
 Lbaas resources starts from here
