@@ -60,7 +60,7 @@ Lets use the old stack .
 ### Part2 - Create a LBAAS resources
 
 
-####openstack_lb_loadbalancer_v2
+#### openstack_lb_loadbalancer_v2
 
 
 ```
